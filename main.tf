@@ -83,7 +83,7 @@ resource "azurerm_lb_probe" "lb_probe" {
 	//resource_group_name = "${data.azurerm_resource_group.rg.name}"
 	loadbalancer_id     = "${azurerm_lb.lb.id}"
 	name                = "tcpProbe${random_id.server.hex}"
-	protocol            = "tcp"
+	protocol            = "Tcp"
 	port                = 80
 	interval_in_seconds = 5
 	number_of_probes    = "${var.vm_count_per_subnet}"
