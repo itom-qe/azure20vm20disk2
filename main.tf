@@ -42,7 +42,7 @@ resource "azurerm_subnet" "subnet" {
 	name                 = "subnet${random_id.server.hex}"
 	virtual_network_name = "${azurerm_virtual_network.vnet.name}"
 	resource_group_name  = "${data.azurerm_resource_group.rg.name}"
-	address_prefix       = "${var.subnet_prefix}"
+	address_prefixes       = ["${var.subnet_prefix}"]
 }
 
 resource "azurerm_lb" "lb" {
