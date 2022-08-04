@@ -18,6 +18,11 @@ variable "hostname" {
 	default="tf"
 }
 
+variable "testdummy" {
+	description = "VM name referenced also in storage-related names."
+	default="tf"
+}
+
 variable "dns_name" {
 	description = " Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system."
 	default="vm"
