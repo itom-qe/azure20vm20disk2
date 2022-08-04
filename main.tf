@@ -57,7 +57,7 @@ resource "azurerm_lb" "lb" {
 }
 
 resource "azurerm_lb_backend_address_pool" "backend_pool" {
-	resource_group_name = "${data.azurerm_resource_group.rg.name}"
+	//resource_group_name = "${data.azurerm_resource_group.rg.name}"
 	loadbalancer_id     = "${azurerm_lb.lb.id}"
 	name                = "BackendPool${random_id.server.hex}"
 }
@@ -76,11 +76,11 @@ resource "azurerm_lb_rule" "lb_rule" {
 	backend_address_pool_id        = "${azurerm_lb_backend_address_pool.backend_pool.id}"
 	idle_timeout_in_minutes        = 5
 	probe_id                       = "${azurerm_lb_probe.lb_probe.id}"
-	depends_on                     = ["azurerm_lb_probe.lb_probe"]
+	depends_on                     = [azurerm_lb_probe.lb_probe]
 }
 
 resource "azurerm_lb_probe" "lb_probe" {
-	resource_group_name = "${data.azurerm_resource_group.rg.name}"
+	//resource_group_name = "${data.azurerm_resource_group.rg.name}"
 	loadbalancer_id     = "${azurerm_lb.lb.id}"
 	name                = "tcpProbe${random_id.server.hex}"
 	protocol            = "tcp"
