@@ -1,0 +1,1 @@
+# Azure20vm20disk
